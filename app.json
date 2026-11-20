@@ -1,22 +1,60 @@
 {
   "expo": {
-    "name": "tungo-movil",
-    "slug": "tungo-movil",
+    "name": "TunGo",
+    "slug": "tungo",
+    "scheme": "tungo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
+      "bundleIdentifier": "com.tungo.movil",
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#171512",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-dev-client",
+        {
+          "addGeneratedScheme": true
+        }
+      ],
+      "expo-secure-store",
+      [
+        "expo-notifications",
+        {
+          "sounds": ["./assets/tungo-order.wav"]
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "TunGo necesita acceso a tus fotos para elegir una imagen de portada.",
+          "microphonePermission": false
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "TunGo usa tu ubicación durante las entregas y cuando activas la asignación automática.",
+          "locationAlwaysAndWhenInUsePermission": "TunGo usa tu ubicación en segundo plano durante entregas activas o cuando activas la asignación automática.",
+          "isIosBackgroundLocationEnabled": true,
+          "isAndroidBackgroundLocationEnabled": true,
+          "isAndroidForegroundServiceEnabled": true
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
